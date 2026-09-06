@@ -3,61 +3,84 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Noir Games — Demo & Showcase</title>
-  <meta name="description" content="Koleksi web game demo: puzzle, arcade, dan showcase game studio. Powered by Noir.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23000'/><text x='50%25' y='55%25' text-anchor='middle' fill='%23fff' font-family='monospace' font-size='32' font-weight='bold'>N</text></svg>">
+  <meta name="theme-color" content="#050607">
+  <meta name="description" content="Noir Play: portal slot demo dengan kredit virtual. Tanpa deposit, withdraw, atau hadiah uang nyata.">
+  <title>Noir Play — Slot Demo</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <h1 class="logo">Noir<span>.</span></h1>
-    <nav><a href="#showcase">Showcase</a><a href="#games">Games</a></nav>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Noir Play">NOIR<span>PLAY</span></a>
+    <nav aria-label="Navigasi utama">
+      <a href="#games">Games</a><a href="#about">Tentang</a>
+    </nav>
+    <button class="wallet" id="wallet" type="button" aria-label="Saldo kredit demo"><small>KREDIT DEMO</small><strong id="balance">10.000</strong></button>
   </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
-      <h2>Play. Demo. Build.</h2>
-      <p>Web games ringan, 100% client-side, tanpa tracking.</p>
-    </section>
-
-    <section id="showcase" class="grid">
-      <h2>Studio Showcase</h2>
-      <div class="cards" id="showcase-cards"></div>
-    </section>
-
-    <section id="games" class="grid">
-      <h2>Built by Noir</h2>
-      <div class="cards">
-        <article class="card" data-game="memory">
-          <h3>Memory Match</h3>
-          <p>Temukan pasangan kartu. 16 kartu, 8 pasang.</p>
-          <button class="play">Main</button>
-        </article>
-        <article class="card" data-game="snake">
-          <h3>Snake</h3>
-          <p>Ular klasik, mouse / arrow keys.</p>
-          <button class="play">Main</button>
-        </article>
-        <article class="card" data-game="pong">
-          <h3>Pong</h3>
-          <p>Vs CPU. Skor sampai 7.</p>
-          <button class="play">Main</button>
-        </article>
+      <div class="hero-copy">
+        <p class="eyebrow">ORIGINAL DEMO COLLECTION · 18+</p>
+        <h1>Putar.<br><em>Tanpa taruhan nyata.</em></h1>
+        <p>Slot bergaya studio modern. Kredit sepenuhnya virtual—tidak bisa dibeli, dijual, atau diuangkan.</p>
+        <a class="primary" href="#games">Jelajahi game</a>
       </div>
+      <div class="hero-art" aria-hidden="true">
+        <span>7</span><span>◆</span><span>★</span>
+        <b>NOIR ORIGINAL</b>
+      </div>
+    </section>
+
+    <section class="catalog" id="games">
+      <div class="section-head">
+        <div><p class="eyebrow">NOIR ORIGINALS</p><h2>Pilih permainan</h2></div>
+        <label class="search"><span>⌕</span><input id="search" type="search" placeholder="Cari game" autocomplete="off"></label>
+      </div>
+      <div class="filters" id="filters" aria-label="Filter game">
+        <button class="active" data-filter="all">Semua</button>
+        <button data-filter="classic">Classic</button>
+        <button data-filter="adventure">Adventure</button>
+        <button data-filter="mythic">Mythic</button>
+      </div>
+      <div class="game-grid" id="game-grid"></div>
+      <p class="empty" id="empty" hidden>Game tidak ditemukan.</p>
+    </section>
+
+    <section class="about" id="about">
+      <p class="eyebrow">FAIR DEMO PLAY</p>
+      <h2>Hiburan tanpa risiko finansial.</h2>
+      <div class="facts">
+        <article><b>0</b><span>Pembayaran nyata</span></article>
+        <article><b>10K</b><span>Kredit awal gratis</span></article>
+        <article><b>100%</b><span>Berjalan di browser</span></article>
+      </div>
+      <p>Hasil dibuat secara acak di perangkat. Saldo tersimpan lokal di browser. Tidak ada akun, deposit, withdraw, hadiah, atau nilai uang.</p>
     </section>
   </main>
 
-  <div id="stage" class="stage hidden" role="dialog" aria-modal="true">
-    <button class="close" aria-label="Tutup">×</button>
-    <div id="stage-content"></div>
+  <div class="modal" id="game-modal" hidden>
+    <section class="game-shell" role="dialog" aria-modal="true" aria-labelledby="game-title">
+      <header class="game-header">
+        <div><small>NOIR ORIGINAL</small><h2 id="game-title">Game</h2></div>
+        <button class="icon-btn" id="close-game" aria-label="Tutup game">×</button>
+      </header>
+      <div class="game-status"><span id="game-message">Semoga beruntung</span><strong id="win-display">MENANG 0</strong></div>
+      <div class="reels" id="reels" aria-label="Mesin slot"></div>
+      <div class="controls">
+        <label>BET <select id="bet"><option>10</option><option>25</option><option>50</option><option>100</option><option>250</option><option>500</option></select></label>
+        <button class="spin" id="spin">SPIN</button>
+        <button class="icon-btn" id="history-button" aria-label="Riwayat putaran">☷</button>
+      </div>
+      <p class="demo-notice">DEMO SAJA · KREDIT TIDAK BERNILAI UANG</p>
+    </section>
   </div>
 
-  <footer><p>Noir · static site, zero cookies, zero tracking</p></footer>
+  <aside class="history" id="history" hidden aria-label="Riwayat putaran">
+    <header><h2>Riwayat</h2><button class="icon-btn" id="close-history">×</button></header>
+    <div id="history-list"></div>
+  </aside>
 
-  <script src="js/showcase.js"></script>
-  <script src="js/memory.js"></script>
-  <script src="js/snake.js"></script>
-  <script src="js/pong.js"></script>
+  <footer><a class="brand" href="#top">NOIR<span>PLAY</span></a><p>© 2026 Noir Play. Demo hiburan 18+. Bukan perjudian uang nyata.</p></footer>
   <script src="js/app.js"></script>
 </body>
 </html>
