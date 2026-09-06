@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Noir Games — Demo & Showcase</title>
+  <meta name="description" content="Koleksi web game demo: puzzle, arcade, dan showcase game studio. Powered by Noir.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23000'/><text x='50%25' y='55%25' text-anchor='middle' fill='%23fff' font-family='monospace' font-size='32' font-weight='bold'>N</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1 class="logo">Noir<span>.</span></h1>
+    <nav><a href="#showcase">Showcase</a><a href="#games">Games</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Play. Demo. Build.</h2>
+      <p>Web games ringan, 100% client-side, tanpa tracking.</p>
+    </section>
+
+    <section id="showcase" class="grid">
+      <h2>Studio Showcase</h2>
+      <div class="cards" id="showcase-cards"></div>
+    </section>
+
+    <section id="games" class="grid">
+      <h2>Built by Noir</h2>
+      <div class="cards">
+        <article class="card" data-game="memory">
+          <h3>Memory Match</h3>
+          <p>Temukan pasangan kartu. 16 kartu, 8 pasang.</p>
+          <button class="play">Main</button>
+        </article>
+        <article class="card" data-game="snake">
+          <h3>Snake</h3>
+          <p>Ular klasik, mouse / arrow keys.</p>
+          <button class="play">Main</button>
+        </article>
+        <article class="card" data-game="pong">
+          <h3>Pong</h3>
+          <p>Vs CPU. Skor sampai 7.</p>
+          <button class="play">Main</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="stage" class="stage hidden" role="dialog" aria-modal="true">
+    <button class="close" aria-label="Tutup">×</button>
+    <div id="stage-content"></div>
+  </div>
+
+  <footer><p>Noir · static site, zero cookies, zero tracking</p></footer>
+
+  <script src="js/showcase.js"></script>
+  <script src="js/memory.js"></script>
+  <script src="js/snake.js"></script>
+  <script src="js/pong.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
